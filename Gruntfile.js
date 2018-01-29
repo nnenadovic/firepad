@@ -106,6 +106,18 @@ module.exports = function (grunt) {
             src: 'lib/firepad.css',
             dest: 'dist/firepad.css'
           },
+          {
+              src: 'dependencies/codemirror.css',
+              dest: 'dist/codemirror.css'
+          },
+          {
+              src: 'dependencies/codemirror.js',
+              dest: 'dist/codemirror.js'
+          },
+          {
+              src: 'dependencies/firebase.js',
+              dest: 'dist/firebase.js'
+          }
         ]
       }
     },
