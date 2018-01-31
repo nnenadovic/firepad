@@ -46,8 +46,12 @@ module.exports = function (grunt) {
             ' * With code from ot.js (Copyright 2012-2013 Tim Baumann)',
             ' */\n',
             '(function (name, definition, context) {',
+            '  var codemirrorjs = require(\'./codemirror.js\');',
             '  //try CommonJS, then AMD (require.js), then use global.',
-            '  if (typeof module != \'undefined\' && module.exports) module.exports = definition();',
+            '  if (typeof module != \'undefined\' && module.exports) {',
+            '    module.exports.firepad = definition(); ',
+            '    module.exports.codemirrorjs = codemirrorjs;',
+            '  }',
             '  else if (typeof context[\'define\'] == \'function\' && context[\'define\'][\'amd\']) define(definition);',
             '  else context[name] = definition();',
             '})(\'Firepad\', function () {'
@@ -114,10 +118,6 @@ module.exports = function (grunt) {
               src: 'dependencies/codemirror.js',
               dest: 'dist/codemirror.js'
           },
-          {
-              src: 'dependencies/firebase.js',
-              dest: 'dist/firebase.js'
-          }
         ]
       }
     },
